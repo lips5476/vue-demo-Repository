@@ -168,25 +168,3 @@ router.replace(router.currentRoute.value.fullPath)用来改变当前位置并覆
 
 
 
-
-
-
-vuex
-创建store
-组件里state的获取及mapState的三种写法
-getters的获取及mapGetters的两种写法   getters里的参数state和getters
-mutation的使用及mapMutations的两种写法及参数state,payload及mutation的对象提交风格
-action的使用  mapActions的两种写法
-action的参数
-
-
-模块里必须加namespace
-只有actions和getters里能拿到根模块的信息
-子模块调用父模块的写法dispatch和commit
-父模块只能调用子模块的actions及其写法
-
-组件使用模块的内容的三种写法
-
-动态创建模块的写法
-
-
