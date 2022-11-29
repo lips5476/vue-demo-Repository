@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <!-- 原理是getter 和setter  所以fullMsg并不是一个方法  而是getter和setter -->
+
+    <!-- 注意在methods里想使用这个fullMsg 也是this.fullMsg -->
+
+
+    <div>{{fullMsg}}</div>
+    <div>{{result}}</div>
+    <div v-for="it in  reverseArr">{{it}}</div>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          first: 'aaa',
+          last: 'bbb',
+          age: 18,
+          arr: [1, 2, 3, 4, 5, 6]
+        }
+      },
+      computed: {
+        fullMsg() {
+          return this.first + "" + this.last
+        },
+        result() {
+          return this.age >= 18 ? "成年" : "未成年"
+        },
+        reverseArr() {
+          return this.arr.reverse()
+        }
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

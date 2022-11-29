@@ -1,0 +1,41 @@
+两种路由原生js实现
+路由文件的创建
+main.js上绑定路由的写法
+redirect的写法
+createWebHistory, createWebHashHistory的区别
+
+router-link的用法
+replace的作用  不进行压栈操作不允许返回 （了解）
+active-class属性用于设置标签被激活后的类属性样式
+懒加载写法
+懒加载分包命名写法webpackChunkName
+meta属性携带固定参数
+
+动态路由的写法
+路由参数的获取 this.$route  以及 setup里获取路由参数的hook useRoute\
+404没匹配到任何页面的时候的路由写法 
+children嵌套路由的写法
+exact-active-class 了解
+嵌套路由内容redirect重定向细节必须是完整路径
+
+ 
+编程式路由写法及useRouter的使用（基础写法和传参写法以及参数对应获取的写法）
+
+router-link通过插槽的方式渲染为指定元素而非a元素(和react的用法一样)
+router-link通过作用域插槽的方式拿到props里的东西  href  route对象 navigate custom(router-link上的属性)  isActive  isExactActive
+
+
+*原因： router-view只是一个占位的元素 如果不通过插槽的方式拿不到里面的元素则操作不了里面的元素*
+*所以想要v-if  或者 用keepalive或者transition包裹里面的元素前提是拿到里面的元素  *
+*那v-slot=props   props.component属性可以返回里面的元素*  <component :is="props.component">
+router-view的动画写法(了解)
+router-view的keepalive
+
+
+动态添加路由addRoute()及如何添加子路由
+动态删除路由的三种方式 同名 removeRoute  及addRoute的返回值
+路由的其他方法补充  hasRoute  getRoutes
+
+
+路由守卫 beforeEach  to和from参数代表的对象
+return的四种情况  false 不写  路径字符串  对象（router.push）

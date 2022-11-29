@@ -1,0 +1,8 @@
+安装
+npm i @vue/cli -g
+
+更新
+npm update @vue/cli -g
+
+创建项目
+vue create 项目名称

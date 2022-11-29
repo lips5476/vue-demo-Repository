@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <!-- 单选框 -->
+
+    <label for="agree">
+      <input id="agree" type="checkbox" v-model="ischeck">
+      是否点击
+    </label>
+    <h2>{{ischeck}}</h2>
+
+
+
+
+    <!-- 多选框 必须要有value-->
+
+    <label for="apple">
+      <input id="apple" type="checkbox" v-model="arr" value="apple">
+      apple
+    </label>
+    <label for="banana">
+      <input id="banana" type="checkbox" v-model="arr" value="banana">
+      banana
+    </label>
+    <label for="orange">
+      <input id="orange" type="checkbox" v-model="arr" value="orange">
+      orange
+    </label>
+    <h2>{{arr}}</h2>
+
+
+    <!-- radio -->
+    <label for="male">
+      <input id="male" type="radio" v-model="gender" value="male">
+      男
+    </label>
+    <label for="female">
+      <input id="female" type="radio" v-model="gender" value="female">
+      女
+    </label>
+    <h2>{{gender }}</h2>
+
+    <!-- select -->
+    你喜欢的水果是：
+    <select v-model="fruit">
+      <option value="apple">apple</option>
+      <option value="banana">banana</option>
+      <option value="orange">orange</option>
+    </select>
+    <h2>fruit:{{fruit }}</h2>
+
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          ischeck: false,
+          arr: [],
+          gender: 'male',
+          fruit: 'apple'
+        }
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

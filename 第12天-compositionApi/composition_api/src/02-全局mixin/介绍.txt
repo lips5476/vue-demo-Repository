@@ -1,0 +1,18 @@
+import { createApp } from 'vue'
+import App from './02-全局mixin/App.vue'
+
+const app = createApp(App)
+ //这样 全局上都会有这个mixin共享的逻辑了
+app.mixin({
+  data(){
+    return {
+
+    }
+  },
+  methods:{
+
+  },
+  created(){}
+})
+
+app.mount('#app')

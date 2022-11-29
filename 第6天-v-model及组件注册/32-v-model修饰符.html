@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <!-- 如果使用了.lazy修饰符 那h2显示的就不会实时更新 -->
+    <!-- 原理:加了.lazy修饰符 v-model绑定的就不是@input事件 而是@change事件  即敲回车的时候触发 -->
+
+    <input type="text" v-model.lazy="msg">
+    <h2>{{msg}}</h2>
+
+    <!-- 如果使用了.number 那h2显示的就只能是num类型 -->
+
+    <input type="text" v-model.number="num">
+    <h2>{{num}}</h2>
+
+    <!-- 如果使用了.trim 顾名思义 -->
+
+    <input type="text" v-model.trim="hello">
+    <h2>{{hello}}</h2>
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          msg: 'aaa',
+          num: 100,
+          hello: 'hello world'
+        }
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

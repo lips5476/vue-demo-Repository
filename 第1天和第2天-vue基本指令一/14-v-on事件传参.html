@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <!-- 第一种默认可以获取到事件对象 -->
+    <button @click="inc">+1</button>
+    <button @click="inc($event,'leo',18)">+1</button>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          count: 100
+        }
+      },
+      methods: {
+        inc(event, name, age) {
+          console.log('事件对象', event, '实参1', name, '实参2', age)
+        },
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <!-- 注意  v-for还可以遍历对象 且可以遍历出来对象的index -->
+    <!--   v-for还可以遍历数字 -->
+    <!-- 关键字  in  of 都可以 -->
+
+    <div v-for="(it,idx) in arr">{{it}}---{{idx}}</div>
+    <div v-for="(val,key,idx) in obj">{{val}}---{{key}}---{{idx}}</div>
+    <div v-for="(num,idx) in 10">{{num}}---{{idx}}</div>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          arr: ["a", "b", "c", "d"],
+          obj: {
+            name: 'aaa',
+            age: 18,
+            height: 181
+          }
+        }
+      },
+      methods: {
+        inc() {
+          this.count++
+        },
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

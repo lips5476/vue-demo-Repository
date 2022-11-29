@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+  <!-- 组件化命名别用驼峰 但可以用短横线 -->
+
+  <template id="my-app">
+    <componentaaa></componentaaa>
+  </template>
+
+  <template id="component-a">
+    <h2>aaaaa</h2>
+    <h2>aaaaa</h2>
+    <h2>aaaaa</h2>
+    <h2>aaaaa</h2>
+    <h2>aaaaa</h2>
+  </template>
+
+
+  <script>
+
+    const app = Vue.createApp({
+      template: '#my-app'
+    })
+    app.component('componentaaa', {
+      template: '#component-a'
+    })
+    app.mount('#app')
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

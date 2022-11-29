@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+
+    <!-- fullMsg2只会打印一次因为fullMsg2这个属性被创建出来的时候已经被缓存了所以只打印一次 -->
+    <!-- fullMsg1是个方法  调用就会执行 所以打印5次-->
+
+    <div>{{fullMsg2}}</div>
+    <div>{{fullMsg2}}</div>
+    <div>{{fullMsg2}}</div>
+    <div>{{fullMsg2}}</div>
+
+    <div>{{fullMsg1()}}</div>
+    <div>{{fullMsg1()}}</div>
+    <div>{{fullMsg1()}}</div>
+    <div>{{fullMsg1()}}</div>
+    <div>{{fullMsg1()}}</div>
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          first: 'aaa',
+          last: 'bbb',
+        }
+      },
+      methods: {
+        fullMsg1() {
+          console.log('fullMsg1')
+          return this.first + "" + this.last
+        },
+      },
+      computed: {
+        fullMsg2() {
+          console.log('fullMsg2')
+          return this.first + "" + this.last
+        },
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

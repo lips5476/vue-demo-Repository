@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+  <!-- 方法一 -->
+  <script type="x-template" id='my-app'>
+    <div>
+      <div>{{msg}}</div>
+      <div>{{count}}</div>
+      <button @click="inc">+1</button>
+      <button @click="inc">-1</button>
+    </div>
+  </script>
+  <!-- 方法二 -->
+  <template id='my-app'>
+    <div>
+      <div>{{msg}}</div>
+      <div>{{count}}</div>
+      <button @click="inc">+1</button>
+      <button @click="inc">-1</button>
+    </div>
+  </template>
+
+
+
+  <script>
+    const app = Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          msg: 'hello',
+          count: 100
+        }
+      },
+      methods: {
+        inc() {
+          console.log('+1')
+          this.count++
+        },
+        dec() {
+          console.log('-1')
+          this.count--
+        }
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

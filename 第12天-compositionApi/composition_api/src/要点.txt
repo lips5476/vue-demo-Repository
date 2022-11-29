@@ -1,0 +1,49 @@
+mixin的使用
+全局mixin的使用  
+extends的使用  extends: extend_app
+setup的使用  
+context的三个字段
+reactive的使用
+ref的使用
+ref结合reactive深层解包的使用
+readonly的使用   一般数据的只读和响应式数据的只读(对象或者字符串)
+isProxy isReactive isReadonly toRow shallowReactive shallowReadonly
+toRefs和toRef的使用
+unref  isRef shallowRef triggerRef
+customRef用来创建自定义ref（防抖案例）
+computedAPI的使用(简写及展开写法)
+watchEffect的基本使用
+watchEffect返回值
+watchEffect清除副作用
+watchEffect的flush属性的三个值及前两个的作用
+setup中使用ref获取真实dom节点
+watch的使用以及和watchEffect的区别
+watch的第一个参数的四种写法的情况(单一数据源)
+watch的第一个参数的多数据源写法(其实就是数组)
+watch的deep针对非reactive对象的侦听
+vue3的生命周期及写法 (()=>{})
+provide和Inject的hook
+使用readonly让子组件里inject获取到的数据无法被子组件改变
+自定义hook  useCounter  useTitle的实现(了解)
+顶层setup 和直接引入组件并使用
+顶层setup使用props, emit  defineProps   defineEmit
+vue里使用h函数生成vnode(了解) 
+自定义指令  当对Dom元素进行底层操作的时候就需要自定义指令  input自动获取焦点 directives
+自定义指令的生命周期  及生命周期的四个参数的意思  bundings里的参数和修饰符的获取
+Teleport类似于react的Portals的作用   将原本要加载在父组件下的某个元素安插到指定位置
+插件在vue2和vue3中的使用  主要vue3拿到全局属性$name的写法
+插件的两种定义方式
+
+
+
+
+
+
+
+extends 
+unref  isRef shallowRef triggerRef
+watchEffect的基本使用
+provide和Inject的hook
+自定义指令的生命周期的写法
+
+

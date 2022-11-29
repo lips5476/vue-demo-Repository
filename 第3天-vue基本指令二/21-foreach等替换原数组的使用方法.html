@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+
+
+    <!-- 有些数组方法是直接生成新的数组  如map  foreach等  -->
+    <!-- 使用 **赋值语句** 替换掉原数组实现视图更新  -->
+
+
+    <div v-for="(it,idx) in arr">{{it}}---{{idx}}</div>
+    <button @click="inc">添加元素</button>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          arr: ["a", "b", "c", "d"]
+        }
+      },
+      methods: {
+        inc() {
+          this.arr = this.arr.filter((it) => {
+            return it !== 'b'
+          })
+        },
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

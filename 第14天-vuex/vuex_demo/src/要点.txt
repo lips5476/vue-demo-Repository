@@ -1,0 +1,13 @@
+创建store  createStore
+main.js引用
+$store在组件里面使用
+setup的useState的hooks的使用  
+store里的mutations里的方法如何在组件里使用  commit  响应式 computed
+
+
+mapState的作用  及其数组和对象的两种写法
+mapState在setup里的写法  直接用
+useState的封装 （了解）
+
+
+getters里一个属性调用另一个属性

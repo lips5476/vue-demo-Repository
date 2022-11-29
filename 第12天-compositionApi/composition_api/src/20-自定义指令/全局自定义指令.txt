@@ -1,0 +1,7 @@
+const app = createApp()
+
+app.directive('focus',{
+  mounted(el, bundings, vnode, preVnode) {
+    el.focus();
+  },
+})

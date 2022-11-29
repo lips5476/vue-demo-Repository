@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <!-- watch用来监听data里的数据变化的  写法和computed差不多 -->
+
+    <input type="text" v-model="question">
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          question: 'aaaa'
+        }
+      },
+      watch: {
+        // 是下面的写法的语法糖
+        // question(newVal, oldVal) {
+        //   console.log('newVal', newVal, 'oldVal', oldVal)
+        // }
+
+        question: {
+          handler: function (newVal, oldVal) {
+            console.log('newVal', newVal, 'oldVal', oldVal)
+          }
+        }
+
+
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

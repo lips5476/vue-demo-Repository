@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <!-- 阻止冒泡 -->
+    <div @click="inc1">
+      <button @click.stop="inc2">+1</button>
+    </div>
+    <!-- 当输入框内键盘enter键抬起的时候 -->
+    <input type="text" @ keyup.enter="enterKeyup" />
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          count: 100
+        }
+      },
+      methods: {
+        inc1() {
+          console.log('aaaa')
+        },
+        inc2() {
+          console.log('bbbb')
+        },
+        enterKeyup(e) {
+          console.log('input', e.target.value)
+        }
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

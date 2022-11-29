@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <button @click="change">change</button>
+  </template>
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          obj: {
+            name: 'aaa',
+            age: 18
+          },
+          arr: [
+            {
+              name: 'aaa',
+              age: 18
+            },
+            {
+              name: 'bbb',
+              age: 18
+            },
+          ]
+
+        }
+      },
+      watch: {
+
+        // 当监听对象某个属性或数组某个元素发生改变时（不是替换整个对象或整个数组）
+        // 这时候使用deep监听这个对象本身（不是属性或元素）   得到的newVal, oldVal是相同的 
+        // 因为这时候newVal, oldVal指向的是同一个新的地址（新的同对象或数组的地址）
+        // 简而言之vue不会对属性或元素发生变更之前的对象或数组的地址 做深拷贝
+
+        // 但是你监听的是对象里或数组里某个元素值得话是可以拿到新旧的值的
+
+        obj: {
+          handler(newVal, oldVal) {
+            console.log('objnewVal', newVal, 'objoldVal', oldVal)
+          },
+          deep: true
+        },
+        arr: {
+          handler(newVal, oldVal) {
+            console.log('objnewVal', newVal, 'objoldVal', oldVal)
+          },
+          deep: true
+        },
+      },
+      methods: {
+        change() {
+          this.obj.name = 'ccc'
+          this.arr[0].name = 'ddd'
+        },
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

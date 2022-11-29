@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <div v-if="isShow">aaa</div>
+    <div v-show="isShow">bbb</div>
+
+
+    <!-- v-show的区别就是 -->
+    <!-- 当判断条件都为真的时候没区别 -->
+    <!-- 当判断条件都为假的时候v-if直接不渲染元素 -->
+    <!-- 当判断条件都为假的时候v-show会渲染元素但是只是加了display：none -->
+
+    <!-- v-show不支持template语法多层渲染 -->
+    <!-- v-show不支持和v-else一起用 -->
+
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          isShow: false
+        }
+      },
+      methods: {
+        inc() {
+          this.count++
+        },
+      }
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

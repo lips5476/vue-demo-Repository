@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <a href="/home">home</a>
+  <a href="/index">index</a>
+
+  <div id="content"></div>
+
+</body>
+
+<script>
+  const content = document.querySelector('#content')
+
+  const aEl = document.querySelectorAll('a')
+  aEl.forEach((a) => {
+    a.addEventListener('click', function (e) {
+      e.preventDefault()
+      const href = a.getAttribute('href')
+
+      history.pushState({}, '', href)
+      // history.replaceState({}, '', href)  pushState是压栈操作  可以回退  replace替换不能回退
+
+      if (location.pathname === '/home') {
+        content.innerHTML = 'Home'
+      } else if (location.pathname === '/index') {
+        content.innerHTML = 'Index'
+      }
+    })
+  })
+
+  window.addEventListener('popstate', () => {    //onpopState事件可以在浏览器前进后退被监听
+    console.log('改变了')
+    if (location.pathname === '/home') {
+      content.innerHTML = 'Home'
+    } else if (location.pathname === '/index') {
+      content.innerHTML = 'Index'
+    }
+  })
+
+</script>
+
+</html>

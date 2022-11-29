@@ -1,0 +1,35 @@
+ webpack之后前端所使用的诸多构建工具的一种
+
+ 功能：将无法被浏览器识别的ts es6 vue文件构建转换编译
+ webpack的短板：随着项目增大模块增多HRM反应时间变长
+ vite的构造：
+      一个开发服务器，基于原生ES模块(ESBuild)提供丰富的内建功能HRM速度很快
+      一套构建指令，使用的是rollup构建工具，且是预配置，输出生产环境优化过得静态资源
+
+
+注意：vite并非vue专属的一种构建工具  它可以支持vue的构建  同时也支持less,ts,postcss等资源的构建
+      所以单独拿js或者css等资源使用vite也是可以的
+
+vite依赖node  且必须大于12版本
+
+安装  npm i vite -g
+
+使用  npx vite
+过程  vite对src文件做了个构建 构建完成后vite搭建了一个本地服务 浏览器访问这个本地服务
+      这个服务提供vite构建完成后的代码
+
+
+
+vite对于vue的支持
+首先你的电脑要安装vue
+其次得安装
+       vue3 单个文件的支持：  @vitejs/plugin-vue
+       vue3 JSX的支持：@vitejs/plugin-vue-jsx
+       vue2 的支持：underfin/vite-plugin-vue2
+然后创建vite的config文件
+然后安装.vue编译的插件  @vue/compiler-sfc
+然后npx vite
+
+
+vite脚手架  npm init vite@latest composition_api  --template vue
+           

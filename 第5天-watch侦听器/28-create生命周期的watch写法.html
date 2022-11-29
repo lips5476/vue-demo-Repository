@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <h2>{{msg}}</h2>
+
+    <!-- 直接改变对象本身可以被watch的handler监听到 -->
+    <button @click="changeObjSelf">change</button>
+    <!-- 但是改变对象里的某条数据并不能被监听深层，  需要deep配置一下 -->
+    <button @click="changeObjInnerData">change</button>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          obj: {
+            name: 'aaa',
+            age: 18
+          }
+        }
+      },
+      methods: {
+        changeObjSelf() {
+          this.obj = { name: 'bbb' }
+        },
+        changeObjInnerData() {
+          this.obj.name = 'ccc'
+        },
+      },
+      create() {
+
+        // 且在create生命周期函数里面watch监听可以被取消，通过调用它的返回值unwatch
+
+        const unwatch = $watch('info', function (newVal, oldVal) {
+          console.log('newVal', newVal, 'oldVal', oldVal)
+        }, {
+          deep: true,
+          immediate: true
+        })
+        // 取消侦听器
+        // unwatch()
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

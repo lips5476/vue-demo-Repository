@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+    <h2>{{msg}}</h2>
+
+    <!-- 直接改变对象本身可以被watch的handler监听到 -->
+    <button @click="changeObjSelf">change</button>
+    <!-- 但是改变对象里的某条数据并不能被监听深层，  需要deep配置一下 -->
+    <button @click="changeObjInnerData">change</button>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: () => {
+        return {
+          obj: {
+            name: 'aaa',
+            age: 18
+          }
+        }
+      },
+      watch: {
+
+        //除去对象的写法  还想侦听里面具体某一属性值得变化的写法
+        // 这样changeObjSelf和changeObjInnerData都会触发 console.log 因为obj.name确实有改变
+        "obj.name": function (newVal, oldVal) {
+          console.log('newVal', newVal, 'oldVal', oldVal)
+        },
+      },
+      methods: {
+        changeObjSelf() {
+          this.obj = { name: 'bbb' }
+        },
+        changeObjInnerData() {
+          this.obj.name = 'ccc'
+        },
+
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

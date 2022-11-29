@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src='https://unpkg.com/vue@next'></script>
+</head>
+
+<body>
+  <div id='app'></div>
+
+
+  <template id="my-app">
+
+    <div>{{fullMsg}}</div>
+    <button @click="changeMsg">改变fullMsg</button>
+  </template>
+
+
+  <script>
+    Vue.createApp({
+      template: "#my-app",
+      data: function () {
+        return {
+          first: 'aaa',
+          last: 'bbb',
+        }
+      },
+      methods: {
+        changeMsg() {
+          this.fullMsg = 'ddd'
+        }
+      },
+      computed: {
+        // 这种写法是getter的语法糖
+        // fullMsg() {
+        //   return this.first + "" + this.last
+        // },
+        fullMsg: {
+          get: function () {
+            return this.first + "" + this.last
+          },
+          set: function (newMsg) {
+            console.log(newMsg)
+          }
+        }
+      }
+
+    }).mount('#app')
+
+  </script>
+
+</body>
+
+</html>

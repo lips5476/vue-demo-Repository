@@ -1,0 +1,8 @@
+import { createApp } from 'vue'
+import App from './21-teleport/App.vue'
+import plugins from './demo_plugins'
+
+
+const app = createApp(App)
+app.use(plugins)
+app.mount('#app')
