@@ -1,0 +1,3 @@
+父传子  props
+子传父  @emit事件触发
+$refs $parent $root
